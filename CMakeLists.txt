@@ -4,6 +4,7 @@ set(CMAKE_CXX_STANDARD 17)
 
 
 find_package(GLFW3 REQUIRED)
-add_executable(overHead main.cpp ./src/glad.c)
+set(SOURCE_FILES ./src/main.cpp ./src/glad.c ./src/function.cpp)
+add_executable(overHead ${SOURCE_FILES})
 
 target_link_libraries(overHead ${GLFW_LIBRARIES} glfw)
