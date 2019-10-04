@@ -20,11 +20,19 @@ public:
     // constructor reads and builds the shader
     Shader(const GLchar* vertexPath, const GLchar* fragmentPath);
     // use/activate the shader
-    void use();
+    void use(){
+        glUseProgram(ID);
+    }
     // utility uniform functions
-    void setBool(const std::string &name, bool value) const;
-    void setInt(const std::string &name, int value) const;
-    void setFloat(const std::string &name, float value) const;
+    void setBool(const std::string &name, bool value) const{
+        glUniform1i(glGetUniformLocation(ID, name.c_str()), (int)value);
+    }
+    void setInt(const std::string &name, int value) const{
+        glUniform1i(glGetUniformLocation(ID, name.c_str()), value);
+    }
+    void setFloat(const std::string &name, float value) const{
+        glUniform1f(glGetUniformLocation(ID, name.c_str()), value);
+    }
 };
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);

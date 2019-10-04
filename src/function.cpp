@@ -33,7 +33,7 @@ std::string readFile(const char *filePath){
     return content;
 }
 
-Shader (const char* vertexPath, const char* fragmentPath){
+Shader::Shader (const char* vertexPath, const char* fragmentPath){
     //1. retrieve the vertex/fragment source code from filePath
     std::string vertexCode;
     std::string fragmentCode;
@@ -71,6 +71,24 @@ Shader (const char* vertexPath, const char* fragmentPath){
     vertex = glCreateShader(GL_VERTEX_SHADER);
     glShaderSource(vertex,1,&vShaderCode,NULL);
     glCompileShader(vertex);
-    //if error, print
+        //if error, print
     glGetShaderiv(vertex,GL_COMPILE_STATUS,&success);
+    if(!success){
+        glGetShaderInfoLog(vertex, 512, NULL, infoLog);
+        std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" << infoLog << std::endl;
+    }
+    //fragment Shader
+    fragment = glCreateShader(GL_FRAGMENT_SHADER);
+    glShaderSource(fragment,1,&fShaderCode,NULL);
+    glCompileShader(fragment);
+        //if error, print
+    glGetShaderiv(vertex,GL_COMPILE_STATUS,&success);
+    if(!success){
+        glGetShaderInfoLog(vertex, 512, NULL, infoLog);
+        std::cout << "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n" << infoLog << std::endl;
+    }
+    // delete the shaders as they're linked into our program now and no longer necessery
+    glDeleteShader(vertex);
+    glDeleteShader(fragment);
 }
+
