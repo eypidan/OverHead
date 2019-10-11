@@ -18,6 +18,10 @@
 
 #include "./stb_image.h"
 
+
+//data header
+//-----------
+
 // timing
 extern float deltaTime;
 extern float lastFrame ;
@@ -25,9 +29,21 @@ extern float lastFrame ;
 extern glm::vec3 cameraPos ;
 extern glm::vec3 cameraFront ;
 extern glm::vec3 cameraUp ;
+//mouse
+extern bool firstMouse;
+extern float yaw ; 	// yaw is initialized to -90.0 degrees since a yaw of 0.0 results in a direction vector pointing to the right so we initially rotate a bit to the left.
+extern float pitch ;
+extern float lastX;
+extern float lastY ;
+extern float fov ;
+
+//-----------
+//data header
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void processInput(GLFWwindow *window);
+void mouse_callback(GLFWwindow* window, double xpos, double ypos);
+void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
 std::string readFile(const char *filePath);
 
 class Shader {
