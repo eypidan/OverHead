@@ -16,8 +16,15 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-
 #include "./stb_image.h"
+
+// timing
+extern float deltaTime;
+extern float lastFrame ;
+// camera
+extern glm::vec3 cameraPos ;
+extern glm::vec3 cameraFront ;
+extern glm::vec3 cameraUp ;
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void processInput(GLFWwindow *window);
