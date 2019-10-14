@@ -18,7 +18,7 @@ bool firstMouse = true;
 float deltaTime = 0.0f;	// time between current frame and last frame
 float lastFrame = 0.0f;
 // lighting
-glm::vec3 lightPos(4.2f, 4.0f, 4.0f);
+glm::vec3 lightPos(2.0f, 2.0f, 3.0f);
 
 
 int main() {
@@ -297,6 +297,7 @@ int main() {
         ourShader.use();
         ourShader.setVec3("lightPos",lightPos);
         ourShader.setVec3("lightColor",glm::vec3(1.0f,1.0f,1.0f));
+        ourShader.setVec3("viewPos",camera.Position);
         //view matrix, camera transformation
         glm::mat4 view = camera.GetViewMatrix();
         ourShader.setMat4("view",view);
@@ -312,7 +313,7 @@ int main() {
             int direction = (i%2 == 0)? 1: -1;
             glm::mat4 model = glm::mat4(1.0f);
             model = glm::translate(model, cubePositions[i]);
-            model = glm::rotate(model,(float)glfwGetTime()*direction, glm::vec3(1.0f*randomList[i][0], 1.0f*randomList[i][1], 1.0f*randomList[i][2]));
+//            model = glm::rotate(model,(float)glfwGetTime()*direction, glm::vec3(1.0f*randomList[i][0], 1.0f*randomList[i][1], 1.0f*randomList[i][2]));
             ourShader.setMat4("model", model);
             glDrawArrays(GL_TRIANGLES, 0, 36);
         }
