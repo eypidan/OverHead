@@ -1,7 +1,7 @@
 //
 // Created by px on 9/26/2019.
 //
-#include "../include/main.h"
+#include "pch.h"
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
     glViewport(0, 0, width, height);
@@ -83,6 +83,7 @@ Shader::Shader (const char* vertexPath, const char* fragmentPath, const char* ge
     try{
         //open files;
         //fstream path is relative to *.exe
+		std::cout << vertexPath << std::endl;
         vShaderFile.open(vertexPath);
         fShaderFile.open(fragmentPath);
         std::stringstream vShaderStream,fShaderStream;
