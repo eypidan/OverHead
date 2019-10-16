@@ -31,5 +31,5 @@ void main()
     vec3 specular = specularStrength * spec * lightColor;
 
     // linearly interpolate between both textures (80% container, 20% awesomeface)
-    FragColor =vec4(diffuse+ambient,1.0)*mix(texture(texture1, TexCoord), texture(texture2, TexCoord), 0.2);
+    FragColor =vec4(diffuse+ambient+specular,1.0)*mix(texture(texture1, TexCoord), texture(texture2, TexCoord), 0.2);
 }

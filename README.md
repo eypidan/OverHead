@@ -26,6 +26,7 @@
 - **glad** is a web service, please go this [web service](http://glad.dav1d.de/) to download opengl in 4.5 version.
 
 - **glm** is a  header third-party library about c++.
+- use [assimp](https://github.com/assimp/assimp) to import model file formats. (assimp VERSION: [ v5.0.0](https://github.com/assimp/assimp/tree/v5.0.0))
 
   
 
