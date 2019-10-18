@@ -83,7 +83,6 @@ Shader::Shader (const char* vertexPath, const char* fragmentPath, const char* ge
     try{
         //open files;
         //fstream path is relative to *.exe
-		std::cout << vertexPath << std::endl;
         vShaderFile.open(vertexPath);
         fShaderFile.open(fragmentPath);
         std::stringstream vShaderStream,fShaderStream;
