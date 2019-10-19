@@ -1,6 +1,7 @@
 #ifndef MESH_H
 #define MESH_H
 
+using namespace std;
 
 struct Vertex {
 	// position
@@ -123,4 +124,5 @@ private:
 		glBindVertexArray(0);
 	}
 };
+
 #endif
