@@ -155,6 +155,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\dataInitialization.cpp" />
     <ClCompile Include="src\function.cpp" />
     <ClCompile Include="src\glad.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -173,6 +174,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="shader\fragmentShader.glsl" />
+    <None Include="shader\skyboxFragment.glsl" />
+    <None Include="shader\skyboxVertex.glsl" />
     <None Include="shader\sunFragment.glsl" />
     <None Include="shader\sunVertex.glsl" />
     <None Include="shader\vertexShader.glsl" />
