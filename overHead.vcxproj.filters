@@ -70,5 +70,11 @@
     <None Include="shader\skyboxFragment.glsl">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="shader\waterVertexShader.glsl">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="shader\waterFragmentShader.glsl">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>
