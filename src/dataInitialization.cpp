@@ -1,27 +1,31 @@
 #include "pch.h"
 
-float waterPlaneVertices[48] = {
+const float WATER_SIZE = 3.8f;
+const float WATER_Y = 2.2f;
+
+float waterPlaneVertices[30] = {
+	// coords
+	-WATER_SIZE, WATER_Y, -WATER_SIZE, -WATER_SIZE, WATER_Y, WATER_SIZE,
+	WATER_SIZE, WATER_Y, WATER_SIZE, WATER_SIZE, WATER_Y, WATER_SIZE,
+	WATER_SIZE, WATER_Y, -WATER_SIZE, -WATER_SIZE, WATER_Y, -WATER_SIZE,
+	// texture coords for dudv
+	1.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f
+
 	//0.0f, 0.0f, 0.0f, 1.0f,
 	//1.0f, 0.0f, 0.0f, 0.0f,
-	//0.0f, 1.0f, 0.0f, 0.0f,
+	//0.0f, 0.0f, 1.0f, 0.0f,
+
+	//0.0f, 0.0f, 0.0f, 1.0f,
+	//1.0f, 0.0f, 0.0f, 0.0f,
+	//0.0f, 0.0f, -1.0f, 0.0f,
+
+	//0.0f, 0.0f, 0.0f, 1.0f,
 	//-1.0f, 0.0f, 0.0f, 0.0f,
-	//0.0f,-1.0f, 0.0f, 0.0f,
+	//0.0f,0.0f, -1.0f, 0.0f,
 
-	0.0f, 0.0f, 0.0f, 1.0f,
-	1.0f, 0.0f, 0.0f, 0.0f,
-	0.0f, 0.0f, 1.0f, 0.0f,
-
-	0.0f, 0.0f, 0.0f, 1.0f,
-	1.0f, 0.0f, 0.0f, 0.0f,
-	0.0f, 0.0f, -1.0f, 0.0f,
-
-	0.0f, 0.0f, 0.0f, 1.0f,
-	-1.0f, 0.0f, 0.0f, 0.0f,
-	0.0f,0.0f, -1.0f, 0.0f,
-
-	0.0f, 0.0f, 0.0f, 1.0f,
-	-1.0f, 0.0f, 0.0f, 0.0f,
-	0.0f, 0.0f, 1.0f, 0.0f
+	//0.0f, 0.0f, 0.0f, 1.0f,
+	//-1.0f, 0.0f, 0.0f, 0.0f,
+	//0.0f, 0.0f, 1.0f, 0.0f
 };
 
 float sunVertices[216] = {

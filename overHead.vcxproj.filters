@@ -50,18 +50,15 @@
     <ClInclude Include="include\model.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\water.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="shader\fragmentShader.glsl">
-      <Filter>Resource Files</Filter>
-    </None>
     <None Include="shader\sunFragment.glsl">
       <Filter>Resource Files</Filter>
     </None>
     <None Include="shader\sunVertex.glsl">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="shader\vertexShader.glsl">
       <Filter>Resource Files</Filter>
     </None>
     <None Include="shader\skyboxVertex.glsl">
@@ -74,6 +71,12 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="shader\waterFragmentShader.glsl">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="shader\modelFragmentShader.glsl">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="shader\modelVertexShader.glsl">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
