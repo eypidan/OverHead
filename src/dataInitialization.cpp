@@ -1,7 +1,7 @@
 #include "pch.h"
 
 const float WATER_SIZE = 3.8f;
-const float WATER_Y = 2.2f;
+const float WATER_Y = -1.2f;
 
 float waterPlaneVertices[30] = {
 	// coords

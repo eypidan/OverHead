@@ -1,3 +1,7 @@
+
+
+
+
 #version 330
 
 in vec4 clipSpace;
@@ -28,9 +32,12 @@ void main(){
 
     // Without alpha, distortion will be too huge
     vec2 distortion1 = texture(tex_dudv, vec2(dudv_coord.x + dudv_move, dudv_coord.y)).rg * 2.0 - 1.0;
+
     distortion1 *= alpha;
     vec2 distortion2 = texture(tex_dudv, vec2(-dudv_coord.x, dudv_coord.y + dudv_move)).rg * 2.0 - 1.0;
-    distortion2 *= alpha;
+
+ 
+ distortion2 *= alpha;
     vec2 distortion = distortion1 + distortion2;
 
     tex_coord_reflection += distortion;
