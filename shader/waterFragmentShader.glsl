@@ -1,7 +1,3 @@
-
-
-
-
 #version 330
 
 in vec4 clipSpace;
@@ -14,6 +10,7 @@ uniform sampler2D tex_refraction;
 uniform sampler2D tex_dudv;
 uniform sampler2D tex_normal;
 uniform sampler2D tex_depth;
+
 uniform float dudv_move;
 uniform vec3 lightColor_water;
 
