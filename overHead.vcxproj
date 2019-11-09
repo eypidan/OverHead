@@ -178,6 +178,8 @@
     <ClInclude Include="src\pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="shader\blueFragment.glsl" />
+    <None Include="shader\blueVertex.glsl" />
     <None Include="shader\modelFragmentShader.glsl" />
     <None Include="shader\skyboxFragment.glsl" />
     <None Include="shader\skyboxVertex.glsl" />

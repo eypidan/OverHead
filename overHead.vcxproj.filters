@@ -79,5 +79,11 @@
     <None Include="shader\modelVertexShader.glsl">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="shader\blueFragment.glsl">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="shader\blueVertex.glsl">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>
