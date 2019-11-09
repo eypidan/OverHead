@@ -92,14 +92,14 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);GLFW_INCLUDE_NONE</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\OpenGL\lib\glfw3.lib;C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\OpenGL\lib\assimp-vc141-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\OpenGL\lib\glfw3.lib;C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\OpenGL\lib\assimp-vc141-mtd.lib;C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\OpenGL\lib\nanogui.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -126,7 +126,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions);GLFW_INCLUDE_NONE</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
@@ -135,7 +135,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\OpenGL\lib\glfw3.lib;C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\OpenGL\lib\assimp-vc141-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\OpenGL\lib\glfw3.lib;C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\OpenGL\lib\assimp-vc141-mtd.lib;C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\OpenGL\lib\nanogui.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -181,6 +181,8 @@
     <None Include="shader\blueFragment.glsl" />
     <None Include="shader\blueVertex.glsl" />
     <None Include="shader\modelFragmentShader.glsl" />
+    <None Include="shader\screenFragmentShader.glsl" />
+    <None Include="shader\screenVertexShader.glsl" />
     <None Include="shader\skyboxFragment.glsl" />
     <None Include="shader\skyboxVertex.glsl" />
     <None Include="shader\sunFragment.glsl" />
