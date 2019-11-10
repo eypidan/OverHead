@@ -37,7 +37,7 @@ public:
     float MovementSpeed;
     float MouseSensitivity;
     float Zoom;
-
+	bool moveEnable = false;
     // Constructor with vectors
     Camera(glm::vec3 position = glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3 up = glm::vec3(0.0f, 1.0f, 0.0f), float yaw = YAW, float pitch = PITCH) : Front(glm::vec3(0.0f, 0.0f, -1.0f)), MovementSpeed(SPEED), MouseSensitivity(SENSITIVITY), Zoom(ZOOM)
     {
@@ -80,23 +80,26 @@ public:
     // Processes input received from a mouse input system. Expects the offset value in both the x and y direction.
     void ProcessMouseMovement(float xoffset, float yoffset, GLboolean constrainPitch = true)
     {
-        xoffset *= MouseSensitivity;
-        yoffset *= MouseSensitivity;
+		if(moveEnable){
+			xoffset *= MouseSensitivity;
+			yoffset *= MouseSensitivity;
 
-        Yaw   += xoffset;
-        Pitch += yoffset;
+			Yaw += xoffset;
+			Pitch += yoffset;
 
-        // Make sure that when pitch is out of bounds, screen doesn't get flipped
-        if (constrainPitch)
-        {
-            if (Pitch > 89.0f)
-                Pitch = 89.0f;
-            if (Pitch < -89.0f)
-                Pitch = -89.0f;
-        }
+			// Make sure that when pitch is out of bounds, screen doesn't get flipped
+			if (constrainPitch)
+			{
+				if (Pitch > 89.0f)
+					Pitch = 89.0f;
+				if (Pitch < -89.0f)
+					Pitch = -89.0f;
+			}
 
-        // Update Front, Right and Up Vectors using the updated Euler angles
-        updateCameraVectors();
+			// Update Front, Right and Up Vectors using the updated Euler angles
+			updateCameraVectors();
+		}
+        
     }
 
     // Processes input received from a mouse scroll-wheel event. Only requires input on the vertical wheel-axis
