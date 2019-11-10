@@ -128,11 +128,22 @@ float skyboxVertices[108] = {
 
 float quadVertices[24] = { // Vertex attributes for a quad that fills the entire screen in Normalized Device Coordinates.
 		// Positions   // TexCoords
-		0.0f,  1.0f,  0.0f, 1.0f,
-		0.0f, -1.0f,  0.0f, 0.0f,
+		0.01f,  1.0f,  0.0f, 1.0f,
+		0.01f, -1.0f,  0.0f, 0.0f,
 		 1.0f, -1.0f,  1.0f, 0.0f,
 
-		0.0f,  1.0f,  0.0f, 1.0f,
+		0.01f,  1.0f,  0.0f, 1.0f,
 		 1.0f, -1.0f,  1.0f, 0.0f,
 		 1.0f,  1.0f,  1.0f, 1.0f
+};
+
+float quadVertices2[24] = { // Vertex attributes for a quad that fills the entire screen in Normalized Device Coordinates.
+		// Positions   // TexCoords
+		-1.0f,  1.0f,  0.0f, 1.0f,
+		-1.0f, -1.0f,  0.0f, 0.0f,
+		 -0.01f, -1.0f,  1.0f, 0.0f,
+
+		-1.0f,  1.0f,  0.0f, 1.0f,
+		 -0.01f, -1.0f,  1.0f, 0.0f,
+		 -0.01f,  1.0f,  1.0f, 1.0f
 };
