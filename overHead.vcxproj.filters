@@ -21,13 +21,13 @@
     <ClCompile Include="src\pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\glad.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\function.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\dataInitialization.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\glad.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
