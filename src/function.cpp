@@ -267,6 +267,3 @@ unsigned int generateAttachmentTexture(GLboolean depth, GLboolean stencil) {
 	return textureID;
 }
 
-void render() {
-	;
-}
