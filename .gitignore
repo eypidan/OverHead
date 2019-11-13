@@ -9,7 +9,6 @@
 *.user
 *.userosscache
 *.sln.docstates
-assimp-vc141-mtd.dll
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
