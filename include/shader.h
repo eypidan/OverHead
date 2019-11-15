@@ -71,4 +71,24 @@ private:
     void checkCompileErrors(GLuint shader, std::string type);
 };
 
+//struct define
+class ShaderSet {
+	
+public:
+	Shader *modelShader;
+	Shader *sunShader;
+	Shader *skyboxShader;
+	Shader *waterShader;
+	Shader *singleColorShader;
+	Shader *screenShader;
+	ShaderSet(Shader &modelShader, Shader &sunShader, Shader &skyboxShader, Shader &waterShader, Shader &singleColorShader, Shader &screenShader) {
+		this->modelShader = &modelShader;
+		this->sunShader = &sunShader;
+		this->skyboxShader = &skyboxShader;
+		this->waterShader = &waterShader;
+		this->singleColorShader = &singleColorShader;
+		this->screenShader = &screenShader;
+	}
+};
+
 #endif //OVERHEAD_SHADER_H
