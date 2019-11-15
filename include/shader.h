@@ -81,13 +81,15 @@ public:
 	Shader *waterShader;
 	Shader *singleColorShader;
 	Shader *screenShader;
-	ShaderSet(Shader &modelShader, Shader &sunShader, Shader &skyboxShader, Shader &waterShader, Shader &singleColorShader, Shader &screenShader) {
-		this->modelShader = &modelShader;
-		this->sunShader = &sunShader;
-		this->skyboxShader = &skyboxShader;
-		this->waterShader = &waterShader;
-		this->singleColorShader = &singleColorShader;
-		this->screenShader = &screenShader;
+	Shader *shadowShader;
+	ShaderSet(Shader *modelShader, Shader *sunShader, Shader *skyboxShader, Shader *waterShader, Shader *singleColorShader, Shader *screenShader,Shader *shadowShader) {
+		this->modelShader = modelShader;
+		this->sunShader = sunShader;
+		this->skyboxShader = skyboxShader;
+		this->waterShader = waterShader;
+		this->singleColorShader = singleColorShader;
+		this->screenShader = screenShader;
+		this->shadowShader = shadowShader;
 	}
 };
 

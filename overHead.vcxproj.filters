@@ -30,6 +30,9 @@
     <ClCompile Include="src\glad.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\renderFunction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\camera.h">
@@ -86,6 +89,12 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="shader\screenVertexShader.glsl">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="shader\shadowFragment.glsl">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="shader\shadowVertex.glsl">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

@@ -167,6 +167,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="src\renderFunction.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\camera.h" />
@@ -182,6 +183,8 @@
     <None Include="shader\modelFragmentShader.glsl" />
     <None Include="shader\screenFragmentShader.glsl" />
     <None Include="shader\screenVertexShader.glsl" />
+    <None Include="shader\shadowFragment.glsl" />
+    <None Include="shader\shadowVertex.glsl" />
     <None Include="shader\skyboxFragment.glsl" />
     <None Include="shader\skyboxVertex.glsl" />
     <None Include="shader\sunFragment.glsl" />
