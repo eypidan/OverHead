@@ -5,7 +5,8 @@ float dudv_move = 0;
 //Model OrganodronCity("./models/OrganodronCity/OrganodronCity.obj");
 int iii = 1;
 
-unsigned int cubemapTexture,floorTexture;
+unsigned int cubemapTexture = 0;
+const unsigned int SHADOW_WIDTH = 1024, SHADOW_HEIGHT = 1024;
 
 void renderScene(ShaderSet inputShaderSet,Camera currentCamera,vaoSet inputVAO,Model *magicCube){
 	//==== data init ====
@@ -15,11 +16,8 @@ void renderScene(ShaderSet inputShaderSet,Camera currentCamera,vaoSet inputVAO,M
 		glm::vec3(-10.0f,  0.0f,  -10.0f),
 		glm::vec3(-15.5f, 0.0f, 25.0f)
 	};
-	if (iii == 1) {
-		cubemapTexture = loadCubemap(faces);
-		floorTexture = loadTexture("./textures/floor.jpg");
-		iii--;
-	}
+	
+	
     inputShaderSet.modelShader->use();
     inputShaderSet.modelShader->setVec3("lightPos", lightPos);
     inputShaderSet.modelShader->setVec3("lightColor", lightColor);
@@ -34,10 +32,9 @@ void renderScene(ShaderSet inputShaderSet,Camera currentCamera,vaoSet inputVAO,M
     //model matrix
     glm::mat4 model = glm::mat4(1.0f);
 
-	//draw plane === shadow ====
-		
-	// === shadow ====
-
+	glBindVertexArray(inputVAO.planeVAO);
+	glDrawArrays(GL_TRIANGLES, 0, 6);
+	glBindVertexArray(0);
     //draw the building
     //1st draw as normal
     glStencilFunc(GL_ALWAYS, 1, 0xFF);
@@ -70,44 +67,51 @@ void renderScene(ShaderSet inputShaderSet,Camera currentCamera,vaoSet inputVAO,M
     }
     glStencilFunc(GL_ALWAYS, 1, 0xFF);
     glStencilMask(0xFF);
-//	glStencilOp(GL_KEEP, GL_KEEP, GL_ZERO);//ttttttt
 
-    //draw water plane
-    inputShaderSet.waterShader->use();
-    inputShaderSet.waterShader->setMat4("projection", projection);
-    inputShaderSet.waterShader->setMat4("view", view);
-    model = glm::mat4(1.0f);
-    //model = glm::scale(model, glm::vec3(5.0f));
-    inputShaderSet.waterShader->setMat4("model", model);
-    dudv_move += 0.0005f; // speed
-    dudv_move = fmod(dudv_move, 1.0f);
-    inputShaderSet.waterShader->setFloat("dudv_move", dudv_move);
 
-    glBindVertexArray(inputVAO.waterVAO);
-    glDrawArrays(GL_TRIANGLES, 0, 6);
-    glBindVertexArray(0);
+    ////draw water plane
+    //inputShaderSet.waterShader->use();
+    //inputShaderSet.waterShader->setMat4("projection", projection);
+    //inputShaderSet.waterShader->setMat4("view", view);
+    //model = glm::mat4(1.0f);
+    ////model = glm::scale(model, glm::vec3(5.0f));
+    //inputShaderSet.waterShader->setMat4("model", model);
+    //dudv_move += 0.0005f; // speed
+    //dudv_move = fmod(dudv_move, 1.0f);
+    //inputShaderSet.waterShader->setFloat("dudv_move", dudv_move);
 
-    //draw light source
-    inputShaderSet.sunShader->use();
-    inputShaderSet.sunShader->setMat4("projection", projection);
-    inputShaderSet.sunShader->setMat4("view", view);
-    inputShaderSet.sunShader->setVec3("lightColor", lightColor);
-    model = glm::mat4(1.0f);
-    model = glm::translate(model, lightPos);
-    model = glm::scale(model, glm::vec3(0.2f)); // a smaller cube
-    inputShaderSet.sunShader->setMat4("model", model);
-    glBindVertexArray(inputVAO.sunVAO);
-    glDrawArrays(GL_TRIANGLES, 0, 36);
-    glBindVertexArray(0);
+    //glBindVertexArray(inputVAO.waterVAO);
+    //glDrawArrays(GL_TRIANGLES, 0, 6);
+    //glBindVertexArray(0);
 
+    ////draw light source
+    //inputShaderSet.sunShader->use();
+    //inputShaderSet.sunShader->setMat4("projection", projection);
+    //inputShaderSet.sunShader->setMat4("view", view);
+    //inputShaderSet.sunShader->setVec3("lightColor", lightColor);
+    //model = glm::mat4(1.0f);
+    //model = glm::translate(model, lightPos);
+    //model = glm::scale(model, glm::vec3(0.2f)); // a smaller cube
+    //inputShaderSet.sunShader->setMat4("model", model);
+    //glBindVertexArray(inputVAO.sunVAO);
+    //glDrawArrays(GL_TRIANGLES, 0, 36);
+    //glBindVertexArray(0);
+
+    
+}
+
+void renderSkybox(Shader skyboxShader,unsigned int skyboxVAO,Camera currentCamera){
+    if (cubemapTexture == 0)  cubemapTexture = loadCubemap(faces);
     //draw skybox last
     glDepthFunc(GL_LEQUAL);
-    inputShaderSet.skyboxShader->use();
-    view = glm::mat4(glm::mat3(currentCamera.GetViewMatrix())); // remove translation from the view matrix, but keep rotation	
-    inputShaderSet.skyboxShader->setMat4("view", view);
-    inputShaderSet.skyboxShader->setMat4("projection", projection);
+    skyboxShader.use();
+    glm::mat4 view = glm::mat4(glm::mat3(currentCamera.GetViewMatrix())); // remove translation from the view matrix, but keep rotation	
+	glm::mat4 projection = glm::mat4(1.0f);
+	projection = glm::perspective(glm::radians(currentCamera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
+	skyboxShader.setMat4("view", view);
+    skyboxShader.setMat4("projection", projection);
     // skybox cubeGL_LESS
-    glBindVertexArray(inputVAO.skyboxVAO);
+    glBindVertexArray(skyboxVAO);
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_CUBE_MAP, cubemapTexture);
     glDrawArrays(GL_TRIANGLES, 0, 36);

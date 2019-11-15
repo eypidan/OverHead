@@ -82,7 +82,8 @@ public:
 	Shader *singleColorShader;
 	Shader *screenShader;
 	Shader *shadowShader;
-	ShaderSet(Shader *modelShader, Shader *sunShader, Shader *skyboxShader, Shader *waterShader, Shader *singleColorShader, Shader *screenShader,Shader *shadowShader) {
+	Shader *depthShader;
+	ShaderSet(Shader *modelShader, Shader *sunShader, Shader *skyboxShader, Shader *waterShader, Shader *singleColorShader, Shader *screenShader,Shader *shadowShader,Shader *depthShader) {
 		this->modelShader = modelShader;
 		this->sunShader = sunShader;
 		this->skyboxShader = skyboxShader;
@@ -90,6 +91,7 @@ public:
 		this->singleColorShader = singleColorShader;
 		this->screenShader = screenShader;
 		this->shadowShader = shadowShader;
+		this->depthShader = depthShader;
 	}
 };
 

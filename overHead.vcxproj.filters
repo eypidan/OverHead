@@ -97,5 +97,11 @@
     <None Include="shader\shadowVertex.glsl">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="shader\depthFragment.glsl">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="shader\depthVertex.glsl">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -180,6 +180,8 @@
   <ItemGroup>
     <None Include="shader\blueFragment.glsl" />
     <None Include="shader\blueVertex.glsl" />
+    <None Include="shader\depthFragment.glsl" />
+    <None Include="shader\depthVertex.glsl" />
     <None Include="shader\modelFragmentShader.glsl" />
     <None Include="shader\screenFragmentShader.glsl" />
     <None Include="shader\screenVertexShader.glsl" />
