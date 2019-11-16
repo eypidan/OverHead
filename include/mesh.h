@@ -70,6 +70,7 @@ public:
 			//cout << "debug : " << name + number << endl;
 			// and finally bind the texture
 			glBindTexture(GL_TEXTURE_2D, textures[i].id);
+            //printf("textures[%d].id:%d\n",i,textures[i].id);
 		}
 
 		// draw mesh

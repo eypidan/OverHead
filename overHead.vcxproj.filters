@@ -73,12 +73,6 @@
     <None Include="shader\waterFragmentShader.glsl">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="shader\modelFragmentShader.glsl">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="shader\modelVertexShader.glsl">
-      <Filter>Resource Files</Filter>
-    </None>
     <None Include="shader\blueFragment.glsl">
       <Filter>Resource Files</Filter>
     </None>
@@ -101,6 +95,12 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="shader\depthVertex.glsl">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="shader\debug_quadFragment.glsl">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="shader\debug_quadVertex.glsl">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

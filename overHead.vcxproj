@@ -180,9 +180,10 @@
   <ItemGroup>
     <None Include="shader\blueFragment.glsl" />
     <None Include="shader\blueVertex.glsl" />
+    <None Include="shader\debug_quadFragment.glsl" />
+    <None Include="shader\debug_quadVertex.glsl" />
     <None Include="shader\depthFragment.glsl" />
     <None Include="shader\depthVertex.glsl" />
-    <None Include="shader\modelFragmentShader.glsl" />
     <None Include="shader\screenFragmentShader.glsl" />
     <None Include="shader\screenVertexShader.glsl" />
     <None Include="shader\shadowFragment.glsl" />
@@ -191,7 +192,6 @@
     <None Include="shader\skyboxVertex.glsl" />
     <None Include="shader\sunFragment.glsl" />
     <None Include="shader\sunVertex.glsl" />
-    <None Include="shader\modelVertexShader.glsl" />
     <None Include="shader\waterFragmentShader.glsl" />
     <None Include="shader\waterVertexShader.glsl" />
   </ItemGroup>
