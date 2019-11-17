@@ -184,6 +184,8 @@
     <None Include="shader\debug_quadVertex.glsl" />
     <None Include="shader\depthFragment.glsl" />
     <None Include="shader\depthVertex.glsl" />
+    <None Include="shader\pickingFragment.glsl" />
+    <None Include="shader\pickingVertex.glsl" />
     <None Include="shader\screenFragmentShader.glsl" />
     <None Include="shader\screenVertexShader.glsl" />
     <None Include="shader\shadowFragment.glsl" />

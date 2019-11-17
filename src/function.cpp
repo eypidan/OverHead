@@ -3,6 +3,7 @@
 //
 #include "pch.h"
 
+
 void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
     glViewport(0, 0, width, height);
 }
@@ -26,6 +27,10 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos)
 
     camera.ProcessMouseMovement(xoffset, yoffset);
 	screen->cursorPosCallbackEvent(xpos, ypos);
+
+	mouseX = xpos;
+	mouseY = ypos;
+
 }
 
 // glfw: whenever the mouse scroll wheel scrolls, this callback is called
@@ -36,12 +41,7 @@ void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
 	screen->scrollCallbackEvent(xoffset, yoffset);
 }
 
-void mouseClickCallback(GLFWwindow* window, int button, int action, int modifiers) {
-	screen->mouseButtonCallbackEvent(button, action, modifiers);
-	camera.ProcessMouseClick(button, action);
-	//0 left, 2 scroll, 1 right
-	 //action : 1 press,0 release
-}
+
 
 void processInput(GLFWwindow *window)
 {

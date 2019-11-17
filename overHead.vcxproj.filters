@@ -103,5 +103,11 @@
     <None Include="shader\debug_quadVertex.glsl">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="shader\pickingFragment.glsl">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="shader\pickingVertex.glsl">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>
