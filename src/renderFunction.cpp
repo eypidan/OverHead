@@ -13,11 +13,7 @@ const unsigned int SHADOW_WIDTH = 1024, SHADOW_HEIGHT = 1024;
 void renderCube(Shader modelShader,Camera currentCamera,vaoSet inputVAO,Model *magicCube){
 	//==== data init ====
 	// building position
-	glm::vec3 buildingPos[] = {
-		glm::vec3(10.0f,  0.0f, 15.0f),
-		glm::vec3(-10.0f,  0.0f,  -10.0f),
-		glm::vec3(-15.5f, 0.0f, 25.0f)
-	};
+
     
     //draw plane
     glm::mat4 model = glm::mat4(1.0f);
@@ -44,11 +40,6 @@ void renderCube(Shader modelShader,Camera currentCamera,vaoSet inputVAO,Model *m
 
 void renderSide(Shader singleColorShader, Camera currentCamera, Model *magicCube){
     // building position
-	glm::vec3 buildingPos[] = {
-		glm::vec3(10.0f,  0.0f, 15.0f),
-		glm::vec3(-10.0f,  0.0f,  -10.0f),
-		glm::vec3(-15.5f, 0.0f, 25.0f)
-	};
 
     //2nd draw scaled verision
     singleColorShader.use();
@@ -64,18 +55,20 @@ void renderSide(Shader singleColorShader, Camera currentCamera, Model *magicCube
     glStencilFunc(GL_NOTEQUAL, 1, 0xFF);
     glStencilMask(0x00);//close write stencil buffer
 
-    GLfloat scale = 1.05;
+    GLfloat scale = 1.1;
     for (int i = 0;i < 3;i++) {
-        glm::mat4 model = glm::mat4(1.0f);
-        model = glm::translate(model, buildingPos[i]);
-        model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));	// it's a bit too big for our scene, so scale it down
-        model = glm::scale(model, glm::vec3(scale, scale, scale));
-        singleColorShader.setMat4("model", model);
-        magicCube->Draw(singleColorShader);
-        //OrganodronCity.Draw(modelShader);
+		if(i == pickedID){
+			glm::mat4 model = glm::mat4(1.0f);
+			model = glm::translate(model, buildingPos[i]);
+			model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));	// it's a bit too big for our scene, so scale it down
+			model = glm::scale(model, glm::vec3(scale, scale, scale));
+			singleColorShader.setMat4("model", model);
+			magicCube->Draw(singleColorShader);
+		}
     }
     glStencilFunc(GL_ALWAYS, 1, 0xFF);
     glStencilMask(0xFF);
+
 }
 
 
