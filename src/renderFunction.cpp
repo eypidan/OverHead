@@ -2,9 +2,8 @@
 
 //setting
 float dudv_move = 0;
-//Model OrganodronCity("./models/OrganodronCity/OrganodronCity.obj");
-int iii = 1;
 
+int iii = 1;
 unsigned int quadVAO = 0;
 unsigned int quadVBO;
 
@@ -15,13 +14,14 @@ void renderCube(Shader modelShader,Camera currentCamera,vaoSet inputVAO,Model *m
 	//==== data init ====
 	// building position
 	glm::vec3 buildingPos[] = {
-		glm::vec3(0.0f,  4.0f, 0.0f),
-		glm::vec3(-10.0f,  -1.0f,  -10.0f),
-		glm::vec3(-15.5f, -1.0f, 25.0f)
+		glm::vec3(10.0f,  0.0f, 15.0f),
+		glm::vec3(-10.0f,  0.0f,  -10.0f),
+		glm::vec3(-15.5f, 0.0f, 25.0f)
 	};
     
     //draw plane
     glm::mat4 model = glm::mat4(1.0f);
+    model = glm::scale(model, glm::vec3(8.5f, 8.5f, 8.5f));
     modelShader.setMat4("model", model);
 	glBindVertexArray(inputVAO.planeVAO);
 	glDrawArrays(GL_TRIANGLES, 0, 6);
@@ -38,16 +38,16 @@ void renderCube(Shader modelShader,Camera currentCamera,vaoSet inputVAO,Model *m
         model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));	// it's a bit too big for our scene, so scale it down
         modelShader.setMat4("model", model);
         magicCube->Draw(modelShader); //rendering while writing into stencil buffer
-        //OrganodronCity.Draw(modelShader);
+     
     }
 }
 
 void renderSide(Shader singleColorShader, Camera currentCamera, Model *magicCube){
     // building position
 	glm::vec3 buildingPos[] = {
-		glm::vec3(0.0f,  4.0f, 0.0f),
-		glm::vec3(-10.0f,  -1.0f,  -10.0f),
-		glm::vec3(-15.5f, -1.0f, 25.0f)
+		glm::vec3(10.0f,  0.0f, 15.0f),
+		glm::vec3(-10.0f,  0.0f,  -10.0f),
+		glm::vec3(-15.5f, 0.0f, 25.0f)
 	};
 
     //2nd draw scaled verision
