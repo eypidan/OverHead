@@ -27,6 +27,13 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos)
     lastY = ypos;
 
     camera.ProcessMouseMovement(xoffset, yoffset);
+	if (camera.moveEnable) {
+		glm::vec3 x = glm::normalize(glm::cross(camera.Front, camera.Up));
+		cameraRight.Position = camera.Position + x * 1.5f;
+		cameraLeft.Position = camera.Position - x * 1.5f;
+		cameraRight.Front = camera.Front;
+		cameraLeft.Front = camera.Front;
+	}
 	screen->cursorPosCallbackEvent(xpos, ypos);
 
 	mouseX = xpos;
@@ -49,14 +56,42 @@ void processInput(GLFWwindow *window)
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
 
-    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
-        camera.ProcessKeyboard(FORWARD, deltaTime);
-    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
-        camera.ProcessKeyboard(BACKWARD, deltaTime);
-    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
-        camera.ProcessKeyboard(LEFT, deltaTime);
-    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
-        camera.ProcessKeyboard(RIGHT, deltaTime);
+    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS){
+		camera.ProcessKeyboard(FORWARD, deltaTime);
+		glm::vec3 x = glm::normalize(glm::cross(camera.Front, camera.Up));
+		cameraRight.Position = camera.Position + x * 1.5f;
+		cameraLeft.Position = camera.Position - x * 1.5f;
+		cameraRight.Front = camera.Front;
+		cameraLeft.Front = camera.Front;
+	}
+        
+    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS){
+		camera.ProcessKeyboard(BACKWARD, deltaTime);
+		glm::vec3 x = glm::normalize(glm::cross(camera.Front, camera.Up));
+		cameraRight.Position = camera.Position + x * 1.5f;
+		cameraLeft.Position = camera.Position - x * 1.5f;
+		cameraRight.Front = camera.Front;
+		cameraLeft.Front = camera.Front;
+	}
+     
+    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS){
+		camera.ProcessKeyboard(LEFT, deltaTime);
+		glm::vec3 x = glm::normalize(glm::cross(camera.Front, camera.Up));
+		cameraRight.Position = camera.Position + x * 1.5f;
+		cameraLeft.Position = camera.Position - x * 1.5f;
+		cameraRight.Front = camera.Front;
+		cameraLeft.Front = camera.Front;
+	}
+   
+    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS){
+		camera.ProcessKeyboard(RIGHT, deltaTime);
+		glm::vec3 x = glm::normalize(glm::cross(camera.Front, camera.Up));
+		cameraRight.Position = camera.Position + x * 1.5f;
+		cameraLeft.Position = camera.Position - x * 1.5f;
+		cameraRight.Front = camera.Front;
+		cameraLeft.Front = camera.Front;
+	}
+    
 }
 
 
