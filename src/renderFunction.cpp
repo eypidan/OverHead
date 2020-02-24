@@ -16,16 +16,19 @@ void renderCube(Shader modelShader,Camera currentCamera,vaoSet inputVAO,Model *m
 
     
     //draw plane
+	glStencilMask(0x00);
+
     glm::mat4 model = glm::mat4(1.0f);
     model = glm::scale(model, glm::vec3(8.5f, 8.5f, 8.5f));
     modelShader.setMat4("model", model);
 	glBindVertexArray(inputVAO.planeVAO);
 	glDrawArrays(GL_TRIANGLES, 0, 6);
 	glBindVertexArray(0);
+
     //draw the building
     //1st draw as normal
     glStencilFunc(GL_ALWAYS, 1, 0xFF);
-    glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
+    //glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
     glStencilMask(0xFF);//enable write stencil buffer
     
     for (int i = 0;i < 3;i++) {
@@ -34,7 +37,6 @@ void renderCube(Shader modelShader,Camera currentCamera,vaoSet inputVAO,Model *m
         model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));	// it's a bit too big for our scene, so scale it down
         modelShader.setMat4("model", model);
         magicCube->Draw(modelShader); //rendering while writing into stencil buffer
-     
     }
 }
 
@@ -67,8 +69,7 @@ void renderSide(Shader singleColorShader, Camera currentCamera, Model *magicCube
 		}
     }
     glStencilFunc(GL_ALWAYS, 1, 0xFF);
-    glStencilMask(0xFF);
-
+    //glStencilMask(0xFF);
 }
 
 
