@@ -28,7 +28,21 @@
 - **glm** is a  header third-party library about c++.
 - use [assimp](https://github.com/assimp/assimp) to import model file formats. (assimp VERSION: [ v5.0.0](https://github.com/assimp/assimp/tree/v5.0.0))
 
-- 
+- use [nanogui](https://github.com/wjakob/nanogui) for object color-change 
 
 ### Feature
-- Implement SubWindow by framebuffer 
+- Multiple Window by framebuffer (Use two cameras to simulate the eyes )
+- Shadow
+- Phong Shading 
+- Object select and move (Right click target object)
+- Scene Roaming and Zoom (WASD and mouse wheel)
+
+
+### Display
+
+![](./photo/1.PNG)
+
+
+
+![](./photo/2.PNG)
+
