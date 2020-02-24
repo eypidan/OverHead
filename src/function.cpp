@@ -18,6 +18,7 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos)
         lastX = xpos;
         lastY = ypos;
         firstMouse = false;
+		return;
     }
 
     float xoffset = xpos - lastX;
@@ -38,7 +39,6 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos)
 
 	mouseX = xpos;
 	mouseY = ypos;
-
 }
 
 // glfw: whenever the mouse scroll wheel scrolls, this callback is called
